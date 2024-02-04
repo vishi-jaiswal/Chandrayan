@@ -112,10 +112,21 @@ class SpaceCraft
       when 'd'
         turn_down
       end
-      puts "\"#{command}\" - #{@position} - #{@direction}"
     end
   end
   def final_position_and_direction
     { position: @position, direction: @direction }
   end
 end
+
+
+starting_point = [0, 0, 0]
+initial_direction = 'N'
+commands = ["f", "r", "u", "b", "l"]
+
+spacecraft = SpaceCraft.new(starting_point, initial_direction)
+spacecraft.process_commands(commands)
+
+result = spacecraft.final_position_and_direction
+puts "Final Position: #{result[:position]}"
+puts "Final Direction: #{result[:direction]}"
